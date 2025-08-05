@@ -6,5 +6,17 @@
 const word = 'hello';
 
 let vowelsAndConsonantsResult = '';
+let vowelsCount = 0;
+let consonantsCount = 0;
+const vowels = 'aeiouAEIOU';
+for (let char of word) {
+  if (vowels.includes(char)) {
+    vowelsCount++;
+  } else if (char.toLowerCase() >= 'a' && char.toLowerCase() <= 'z') {
+    consonantsCount++;
+  }
+}
+vowelsAndConsonantsResult = `${word} contains ${vowelsCount} vowels and ${consonantsCount} consonants`;
+console.log(vowelsAndConsonantsResult);
 
-export { vowelsAndConsonantsResult };
+module.exports = { vowelsAndConsonantsResult };
