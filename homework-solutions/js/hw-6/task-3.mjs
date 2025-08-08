@@ -6,6 +6,25 @@
 
   Присвойте результат в переменную "unique"
 */
-let unique;
+
+let unique = [];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 4, 6, 8, 10, 1, 3, 5, 7, 9];
+for (let i = 0; i < numbers.length; i++) {
+  for (let j = i + 1; j < numbers.length; j++) {
+    if (numbers[i] === numbers[j]) {
+      numbers.splice(j, 1);
+      j--;
+    }
+  }
+  unique.push(numbers[i]);
+}
+console.log(unique);
+
+/*
+Пока думала, как решить, наткнулась на метод Set, который работает более эффективно.
+Но он не изменяет первоначальный массив, а создает новый.
+unique = [...new Set(numbers)];
+console.log(unique);
+*/
 
 export { unique };
