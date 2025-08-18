@@ -9,7 +9,19 @@
 */
 
 function digitalRoot(number) {
-  // Ваш код
+  if (typeof number !== 'number' || number < 0) {
+    return 'invalid input';
+  }
+  if (number < 10) {
+    return number;
+  }
+  function sumDigits(num) {
+    if (num === 0) {
+      return 0;
+    }
+    return num % 10 + sumDigits(Math.floor(num / 10));
+  }
+  const sum = sumDigits(number);
+  return digitalRoot(sum);
 }
-
 export { digitalRoot };
