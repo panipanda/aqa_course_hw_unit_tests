@@ -18,8 +18,14 @@ const words = [
   'queue',
 ];
 
-function sortedByVowels(wordsArr) {
-  // Ваш код
+function sortedByVowels(words) {
+  const vowels = 'aeiou';
+  const countVowels = (item) =>
+    item.toLowerCase().split('').reduce((sum, ch) => sum + (vowels.includes(ch) ? 1 : 0), 0);
+  return words.toSorted((a, b) => countVowels(a) - countVowels(b));
 }
+
+console.log(sortedByVowels(words));
+
 
 export { sortedByVowels };
